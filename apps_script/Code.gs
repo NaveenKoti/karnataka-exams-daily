@@ -67,6 +67,8 @@ function normalise_(text) {
   text = text.split('\n').map(function (l) { return l.replace(/[ \t]+$/, ''); }).join('\n');
   text = text.replace(/^(#{1,6}) \*\*(.+?)\*\*$/gm, '$1 $2');
   text = text.replace(/^-{3,}$/gm, '---');
+  // Gemini sometimes wraps whole lines (front matter, headings) in backticks: strip them.
+  text = text.replace(/^`([^`\n]*)`$/gm, '$1').replace(/^(#{1,6} )`([^`\n]*)`$/gm, '$1$2');
   // Docs drops or moves the closing rule and adds blank lines: rebuild the front matter block.
   var lines = text.trim().split('\n');
   if (lines[0] === '---') {
