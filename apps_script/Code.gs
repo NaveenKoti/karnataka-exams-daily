@@ -51,10 +51,37 @@ function gh_(c, method, path, payload) {
 function readText_(file) {
   var mt = file.getMimeType();
   var text;
-  if (mt === 'application/vnd.google-apps.document') text = DocumentApp.openById(file.getId()).getBody().getText();
-  else text = file.getBlob().getDataAsString('UTF-8');
-  text = text.replace(/\r\n/g, '\n').replace(/^﻿/, '').trim();
-  var m = text.match(/^```[a-zA-Z]*\n([\s\S]*)\n```$/);
+  if (mt === 'application/vnd.google-apps.document') {
+    // Export as markdown so headings, tables and lists written by Gemini keep their markers.
+    var r = UrlFetchApp.fetch('https://www.googleapis.com/drive/v3/files/' + file.getId() + '/export?mimeType=text/markdown', {
+      headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() }, muteHttpExceptions: true });
+    text = r.getResponseCode() === 200 ? r.getContentText('UTF-8') : DocumentApp.openById(file.getId()).getBody().getText();
+  } else text = file.getBlob().getDataAsString('UTF-8');
+  return normalise_(text);
+}
+
+/** Undo what Google Docs does to markdown: escapes, bold in headings, trailing spaces, rule markers, shifted heading levels. */
+function normalise_(text) {
+  text = text.replace(/\r\n/g, '\n').replace(/^﻿/, '');
+  text = text.replace(/\\([\\`*_{}\[\]()#+\-.!|<>~:])/g, '$1');
+  text = text.split('\n').map(function (l) { return l.replace(/[ \t]+$/, ''); }).join('\n');
+  text = text.replace(/^(#{1,6}) \*\*(.+?)\*\*$/gm, '$1 $2');
+  text = text.replace(/^-{3,}$/gm, '---');
+  // Docs drops or moves the closing rule and adds blank lines: rebuild the front matter block.
+  var lines = text.trim().split('\n');
+  if (lines[0] === '---') {
+    var i = 1, keep = [];
+    while (i < lines.length && (lines[i].trim() === '' || /^[a-z_]+:/.test(lines[i]))) { if (lines[i].trim()) keep.push(lines[i]); i++; }
+    if (lines[i] === '---') i++;
+    text = '---\n' + keep.join('\n') + '\n---\n\n' + lines.slice(i).join('\n');
+  }
+  var mm = text.match(/^(#{1,6}) .*ಇಂದಿನದ ವಿಷಯ/m);   // heading for the main lesson must be level 2
+  if (mm && mm[1].length !== 2) {
+    var shift = 2 - mm[1].length;
+    text = text.replace(/^(#{1,6}) /gm, function (a, h) { return new Array(Math.max(1, Math.min(6, h.length + shift)) + 1).join('#') + ' '; });
+  }
+  text = text.trim();
+  var m = text.match(/^\x60\x60\x60[a-zA-Z]*\n([\s\S]*)\n\x60\x60\x60$/);
   if (m) text = m[1].trim();
   return text + '\n';
 }
@@ -120,4 +147,17 @@ function selfTest() {
   console.log('GitHub repo check: HTTP ' + r.code);
   console.log('Editions folder: ' + DriveApp.getFolderById(c.editionsId).getName());
   console.log('Candidate files: ' + candidates_(c).length);
+}
+
+/** Run once: stores the non-secret settings. Add GITHUB_TOKEN yourself in Project Settings > Script properties. */
+function setProps() {
+  PropertiesService.getScriptProperties().setProperties({
+    GITHUB_OWNER: 'NaveenKoti',
+    GITHUB_REPO: 'karnataka-exams-daily',
+    GITHUB_BRANCH: 'main',
+    EDITIONS_FOLDER_ID: '1Dg_ugQxciQNaii3eeOeOngt9gRD-9M7F',
+    AUDITS_FOLDER_ID: '1qPetdUQ9N2_wBIyq6MvF70QCdrfg2kYv',
+    LOG_SHEET_ID: '1jTkIyzYOojFhLGNdJtMkJk6zlJewUC35KCjosGKGM1g',
+    ALERT_EMAIL: 'naveenkoti@gmail.com'
+  });
 }

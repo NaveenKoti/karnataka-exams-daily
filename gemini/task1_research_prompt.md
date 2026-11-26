@@ -33,8 +33,8 @@ Look at the last 48 hours (the last 7 days on Sunday). Check only sources for to
 - Discovery and explanation: The Hindu, The Indian Express, Deccan Herald, Down To Earth, Mongabay India, PRS India.
 - NEVER use: coaching sites, Telegram/WhatsApp, social media, Wikipedia.
 Open the last 3 files in editions/ and read their `Source:` lines. Skip any URL or event already used. A developing story is allowed only if there is a new official development; say what is new.
-List up to 6 candidates. For each: Y/N with a reason against this gate: (1) maps to a syllabus topic id in plan.json, (2) you opened and read the source, (3) it teaches something beyond the headline. Skip celebrity, gossip, routine crime, routine sports, trending-only items.
-RANK the items that passed the gate. Score each 0 to 5 on four criteria: (a) direct syllabus relevance, (b) conceptual teaching value, (c) importance for the exams named in ladder_exams for this subject, (d) Karnataka relevance. Select the top 3 with a total of at least 12 out of 20, at least 1 with a Karnataka angle if one qualifies. Order them by total score and show every score with a one-line reason. For each selected item give:
+List up to 6 candidates. For each: Y/N with a reason against this gate: (1) maps to a syllabus topic id in the KED plan, (2) you opened and read the source, (3) it teaches something beyond the headline. Skip celebrity, gossip, routine crime, routine sports, trending-only items.
+RANK the items that passed the gate. Score each 0 to 5 on four criteria: (a) direct syllabus relevance, (b) conceptual teaching value, (c) importance for the exams this subject serves, (d) Karnataka relevance. Select the top 3 with a total of at least 12 out of 20, at least 1 with a Karnataka angle if one qualifies. Order them by total score and show every score with a one-line reason. For each selected item give:
 N1 | headline | what happened (facts only, each with URL) | event date | published date | primary-source URL or "newspaper only" | concept link (topic id) | what is new vs recent editions
 
 # STEP 4: MCQ seeds
@@ -46,11 +46,11 @@ Save ONE Google Doc titled exactly <D>_<TOPICID>_brief in KED/briefs/ (plain tex
 date: <D>
 subject: <code>
 topic_id: <id>
-topic_title: <English title from plan.json>
+topic_title: <English title from the KED plan>
 round: <1 or 2>
 fact_count: <n>
 status: <OK or THIN>
-exams: <codes for this subject from ladder_exams in plan.json>
+exams: <KAS, FDA, SDA, PSI, PDO, RTO, BANK, DEF for POL/HIS/GEO/ECO/ENV/SCI/REV; KAS, FDA, SDA, PSI, PDO, RTO for KAR>
 ---
 ## FACTS (F1...)
 ## COMPONENTS (C1...C7)
