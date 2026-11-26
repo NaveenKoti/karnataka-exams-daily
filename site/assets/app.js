@@ -1,4 +1,17 @@
 (function () {
+  // Accordions: expand/collapse all, open a section when its pill is tapped, open everything for print.
+  function setAll(v) { document.querySelectorAll('details.sec, details.sub, details.deeper').forEach(function (d) { d.open = v; }); }
+  var ex = document.getElementById('expandall'), co = document.getElementById('collapseall');
+  if (ex) ex.addEventListener('click', function () { setAll(true); });
+  if (co) co.addEventListener('click', function () { setAll(false); });
+  document.querySelectorAll('.pills a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t && t.tagName === 'DETAILS') t.open = true;
+    });
+  });
+  window.addEventListener('beforeprint', function () { setAll(true); });
+
   // Date picker: jump to the chosen edition.
   var sel = document.getElementById('datesel');
   if (sel) sel.addEventListener('change', function () { location.href = sel.value; });

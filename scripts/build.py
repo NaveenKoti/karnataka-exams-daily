@@ -106,6 +106,27 @@ def mcq_html(mcqs):
     return "".join(out)
 
 
+def acc(summary, inner, cls="sub", opened=False):
+    return '<details class="%s"%s><summary>%s</summary><div class="body">%s</div></details>' % (
+        cls, " open" if opened else "", summary, inner)
+
+
+def split_h3(html, open_first=True):
+    """Turn each <h3> block of rendered markdown into a collapsible accordion; text before the first <h3> stays visible."""
+    import re as _re
+    parts = _re.split(r"(<h3[^>]*>.*?</h3>)", html, flags=_re.S)
+    out = [parts[0]]
+    i = 1
+    first = True
+    while i < len(parts):
+        head = _re.sub(r"</?h3[^>]*>", "", parts[i])
+        body = parts[i + 1] if i + 1 < len(parts) else ""
+        out.append(acc(head, body, "sub", opened=(open_first and first)))
+        first = False
+        i += 2
+    return "".join(out)
+
+
 def news_html(items, empty_text):
     if not items:
         return md(empty_text)
@@ -118,7 +139,7 @@ def news_html(items, empty_text):
             src = '<p class="src">%s: <a rel="noopener noreferrer" target="_blank" href="%s">%s</a> · %s %s · %s %s</p>' % (
                 L["source"], esc(url), esc(s.get("name", "")), L["published"], esc(s.get("published", "")),
                 L["event"], esc(s.get("event", "")))
-        out.append('<article class="news"><h3>%s</h3>%s%s</article>' % (esc(n["title"]), md(n["body"]), src))
+        out.append(acc(esc(n["title"]), md(n["body"]) + src, "sub news", opened=False))
     return "".join(out)
 
 
@@ -145,14 +166,16 @@ def edition_body(ed, status, preview, root, prefix, dates):
 <h1>%s</h1>
 <p class="sub">%s · %s · %s</p><p class="chips">%s</p>
 <nav class="pills">%s</nav>
-<section id="lesson"><h2>1 · %s</h2>%s%s</section>
-<section id="news"><h2>2 · %s</h2>%s</section>
-<section id="remember"><h2>3 · %s</h2>%s</section>
-<section id="practice"><h2>4 · %s</h2>%s</section>%s
+<p class="tools"><button type="button" id="expandall">%s</button> <button type="button" id="collapseall">%s</button></p>
+<details class="sec" id="lesson" open><summary>1 · %s</summary><div class="body">%s%s</div></details>
+<details class="sec" id="news"><summary>2 · %s</summary><div class="body">%s</div></details>
+<details class="sec" id="remember"><summary>3 · %s</summary><div class="body">%s</div></details>
+<details class="sec" id="practice"><summary>4 · %s</summary><div class="body">%s</div></details>%s
 </article></main>""" % (
         header(root, prefix, dates, fm["date"], preview), esc(fmt_date(ed["date"])), badge,
         esc(fm["title_kn"]), esc(fm["topic_title"]), esc(fm["topic_id"]), esc(mins), chips, pills,
-        L["lesson"], md(ed["lesson"]), deeper, L["news"], news_html(ed["news"], "ಇಂದು ಪರೀಕ್ಷೆಗೆ ಸಂಬಂಧಿಸಿದ ಹೊಸ ಸುದ್ದಿ ಆಯ್ಕೆಯಾಗಿಲ್ಲ."),
+        "ಎಲ್ಲಾ ತೆರೆಯಿರಿ", "ಎಲ್ಲಾ ಮುಚ್ಚಿ",
+        L["lesson"], split_h3(md(ed["lesson"])), deeper, L["news"], news_html(ed["news"], "ಇಂದು ಪರೀಕ್ಷೆಗೆ ಸಂಬಂಧಿಸಿದ ಹೊಸ ಸುದ್ದಿ ಆಯ್ಕೆಯಾಗಿಲ್ಲ."),
         L["remember"], md(ed["remember"]), L["practice"], mcq_html(ed["mcqs"]), review)
 
 
