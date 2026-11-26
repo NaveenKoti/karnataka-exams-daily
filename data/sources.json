@@ -1,0 +1,16 @@
+{
+  "note": "News 'Source:' URLs must be https and on this list. Coaching sites, social media, messaging apps and Wikipedia are never accepted. Add a domain here only after deciding it is a trustworthy primary or independent source.",
+  "allowed": [
+    "gov.in", "nic.in", "rbi.org.in", "sebi.gov.in", "pib.gov.in", "sci.gov.in", "sansad.in",
+    "indiacode.nic.in", "isro.gov.in", "prsindia.org", "cag.gov.in", "eci.gov.in",
+    "un.org", "worldbank.org", "imf.org", "wto.org",
+    "thehindu.com", "indianexpress.com", "deccanherald.com", "downtoearth.org.in", "mongabay.com",
+    "npci.org.in", "irdai.gov.in", "pfrda.org.in", "drdo.gov.in"
+  ],
+  "forbidden": [
+    "wikipedia.org", "t.me", "telegram.org", "whatsapp.com", "facebook.com", "instagram.com",
+    "x.com", "twitter.com", "youtube.com", "youtu.be", "quora.com", "reddit.com",
+    "testbook.com", "byjus.com", "adda247.com", "unacademy.com", "drishtiias.com", "vajiramandravi.com",
+    "careerpower.in", "oliveboard.in", "freejobalert.com", "scribd.com"
+  ]
+}

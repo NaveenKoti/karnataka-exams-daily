@@ -1,0 +1,68 @@
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+    paths: ["content/**", "data/**", "scripts/**", "site/**", ".github/workflows/publish.yml"]
+  schedule:
+    - cron: "45 23 * * *"   # 05:15 IST safety rebuild
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      invalid: ${{ steps.val.outputs.invalid }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install markdown
+      - name: Validate editions
+        id: val
+        run: |
+          set +e
+          python scripts/validate.py
+          code=$?
+          cat build/report.md >> "$GITHUB_STEP_SUMMARY"
+          if [ $code -ne 0 ]; then echo "invalid=1" >> "$GITHUB_OUTPUT"; else echo "invalid=0" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+      - name: Build site (invalid editions are skipped)
+        env:
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH }}
+        run: python scripts/build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  flag-invalid:
+    # Turns the run red when an edition failed validation, so you notice by email.
+    needs: [build, deploy]
+    if: needs.build.outputs.invalid == '1'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "One or more editions failed validation and were NOT published. See the job summary of the build job."
+          exit 1

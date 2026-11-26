@@ -1,0 +1,38 @@
+{
+  "status": "PHASE 2 DRAFT - not used by the daily Core task. Provisional topics; confirm against official syllabi.",
+  "format": "Short corner edition (~8 min): one concept, 2 news items, 5 MCQs, on its own schedule and files (track: BANK or DEF)",
+  "weekday_corners": {
+    "Mon": "BANK", "Tue": "DEF", "Wed": "TBD (aptitude drills, Phase 3)",
+    "Thu": "BANK", "Fri": "DEF", "Sat": "TBD (language and computer drills, Phase 3)", "Sun": "weekly mini-mock"
+  },
+  "ladders": {
+    "BANK": [
+      {"id":"BANK-01","title":"Structure of the Indian banking system: commercial, cooperative, RRBs, small finance, payments banks"},
+      {"id":"BANK-02","title":"RBI: functions, organisation, regulatory role"},
+      {"id":"BANK-03","title":"Monetary policy tools from a banking angle: repo, reverse repo, CRR, SLR, MSF"},
+      {"id":"BANK-04","title":"Accounts, cheques and negotiable instruments basics"},
+      {"id":"BANK-05","title":"Credit, NPAs, SARFAESI and Basel norms"},
+      {"id":"BANK-06","title":"Digital payments: UPI, NEFT, RTGS, IMPS"},
+      {"id":"BANK-07","title":"Financial inclusion schemes"},
+      {"id":"BANK-08","title":"Insurance and pensions: IRDAI and PFRDA"},
+      {"id":"BANK-09","title":"Capital market basics: SEBI, mutual funds"},
+      {"id":"BANK-10","title":"International financial institutions and global banking bodies"},
+      {"id":"BANK-11","title":"Banking terms and abbreviations"},
+      {"id":"BANK-12","title":"Recent banking reforms and mergers"}
+    ],
+    "DEF": [
+      {"id":"DEF-01","title":"Structure of the Indian armed forces and commands"},
+      {"id":"DEF-02","title":"Ranks and insignia basics"},
+      {"id":"DEF-03","title":"Wars and major operations since 1947"},
+      {"id":"DEF-04","title":"Ministry of Defence, DRDO, defence PSUs and procurement"},
+      {"id":"DEF-05","title":"Missiles and weapon systems"},
+      {"id":"DEF-06","title":"Indian Navy: ships, submarines, bases"},
+      {"id":"DEF-07","title":"Indian Air Force: aircraft and bases"},
+      {"id":"DEF-08","title":"CAPFs and internal security"},
+      {"id":"DEF-09","title":"Defence exercises and international cooperation"},
+      {"id":"DEF-10","title":"Defence reforms: CDS, theatre commands, Agnipath"},
+      {"id":"DEF-11","title":"Gallantry awards"},
+      {"id":"DEF-12","title":"Space and cyber in defence"}
+    ]
+  }
+}

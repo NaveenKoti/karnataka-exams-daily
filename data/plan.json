@@ -1,0 +1,611 @@
+{
+  "status": "PROVISIONAL - reconcile against the official KPSC notification PDF before treating as syllabus",
+  "version": 1,
+  "weekday_subjects": {
+    "Mon": "POL",
+    "Tue": "HIS",
+    "Wed": "GEO",
+    "Thu": "ECO",
+    "Fri": "ENV_SCI_ALTERNATE",
+    "Sat": "KAR",
+    "Sun": "REV"
+  },
+  "friday_rule": "Fri: use ENV if covered ENV topics <= covered SCI topics, otherwise SCI",
+  "exam_codes": [
+    "KAS",
+    "FDA",
+    "SDA",
+    "PSI",
+    "PDO",
+    "RTO",
+    "BANK",
+    "DEF"
+  ],
+  "ladder_exams_note": "PROVISIONAL tags: which exam families a ladder is useful for. Confirm against each official syllabus.",
+  "ladder_exams": {
+    "POL": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "HIS": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "GEO": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "ECO": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "ENV": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "SCI": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO",
+      "BANK",
+      "DEF"
+    ],
+    "KAR": [
+      "KAS",
+      "FDA",
+      "SDA",
+      "PSI",
+      "PDO",
+      "RTO"
+    ]
+  },
+  "ladders": {
+    "POL": [
+      {
+        "id": "POL-01",
+        "title": "Historical background: Company rule to the Government of India Act 1935"
+      },
+      {
+        "id": "POL-02",
+        "title": "Making of the Constitution: Constituent Assembly and its committees"
+      },
+      {
+        "id": "POL-03",
+        "title": "Salient features and sources of the Constitution"
+      },
+      {
+        "id": "POL-04",
+        "title": "The Preamble"
+      },
+      {
+        "id": "POL-05",
+        "title": "Union and its territory; Citizenship (Articles 1 to 11)"
+      },
+      {
+        "id": "POL-06",
+        "title": "Fundamental Rights I: Articles 12-13 and Right to Equality (14-18)"
+      },
+      {
+        "id": "POL-07",
+        "title": "Fundamental Rights II: Right to Freedom (19-22)"
+      },
+      {
+        "id": "POL-08",
+        "title": "Fundamental Rights III: Exploitation, Religion, Cultural and Educational Rights (23-30)"
+      },
+      {
+        "id": "POL-09",
+        "title": "Right to Constitutional Remedies and Writs (Articles 32, 226)"
+      },
+      {
+        "id": "POL-10",
+        "title": "Directive Principles of State Policy"
+      },
+      {
+        "id": "POL-11",
+        "title": "Fundamental Duties; Fundamental Rights vs DPSP"
+      },
+      {
+        "id": "POL-12",
+        "title": "Basic Structure Doctrine"
+      },
+      {
+        "id": "POL-13",
+        "title": "Amendment of the Constitution (Article 368)"
+      },
+      {
+        "id": "POL-14",
+        "title": "Parliament I: composition of Lok Sabha and Rajya Sabha"
+      },
+      {
+        "id": "POL-15",
+        "title": "Parliament II: legislative procedure, committees, privileges"
+      },
+      {
+        "id": "POL-16",
+        "title": "President and Vice-President"
+      },
+      {
+        "id": "POL-17",
+        "title": "Prime Minister and Council of Ministers"
+      },
+      {
+        "id": "POL-18",
+        "title": "Supreme Court and High Courts"
+      },
+      {
+        "id": "POL-19",
+        "title": "Judicial review, PIL, Lok Adalats, tribunals"
+      },
+      {
+        "id": "POL-20",
+        "title": "Union-State relations"
+      },
+      {
+        "id": "POL-21",
+        "title": "State Government: Governor, Chief Minister, Legislature"
+      },
+      {
+        "id": "POL-22",
+        "title": "Panchayati Raj and Urban Local Bodies (73rd and 74th Amendments)"
+      },
+      {
+        "id": "POL-23",
+        "title": "Constitutional bodies: ECI, UPSC/SPSC, CAG, Finance Commission"
+      },
+      {
+        "id": "POL-24",
+        "title": "Emergency provisions"
+      },
+      {
+        "id": "POL-25",
+        "title": "NITI Aayog, NHRC, CIC, Lokpal and other statutory bodies"
+      }
+    ],
+    "HIS": [
+      {
+        "id": "HIS-01",
+        "title": "Prehistory and the Indus Valley Civilisation"
+      },
+      {
+        "id": "HIS-02",
+        "title": "Vedic age"
+      },
+      {
+        "id": "HIS-03",
+        "title": "Mahajanapadas, Jainism and Buddhism"
+      },
+      {
+        "id": "HIS-04",
+        "title": "Mauryan Empire"
+      },
+      {
+        "id": "HIS-05",
+        "title": "Post-Mauryan period: Satavahanas, Kushanas, Sangam age"
+      },
+      {
+        "id": "HIS-06",
+        "title": "Gupta period and post-Gupta kingdoms"
+      },
+      {
+        "id": "HIS-07",
+        "title": "Early medieval India: Rajputs and Cholas"
+      },
+      {
+        "id": "HIS-08",
+        "title": "Delhi Sultanate"
+      },
+      {
+        "id": "HIS-09",
+        "title": "Bhakti and Sufi movements"
+      },
+      {
+        "id": "HIS-10",
+        "title": "Vijayanagara and Bahmani kingdoms"
+      },
+      {
+        "id": "HIS-11",
+        "title": "Mughal Empire"
+      },
+      {
+        "id": "HIS-12",
+        "title": "Marathas"
+      },
+      {
+        "id": "HIS-13",
+        "title": "Advent of Europeans and British conquest"
+      },
+      {
+        "id": "HIS-14",
+        "title": "Revolt of 1857 and colonial economy"
+      },
+      {
+        "id": "HIS-15",
+        "title": "Socio-religious reform movements"
+      },
+      {
+        "id": "HIS-16",
+        "title": "Rise of Indian nationalism: early Indian National Congress"
+      },
+      {
+        "id": "HIS-17",
+        "title": "Swadeshi movement and Home Rule"
+      },
+      {
+        "id": "HIS-18",
+        "title": "Gandhian phase: Non-Cooperation and Civil Disobedience"
+      },
+      {
+        "id": "HIS-19",
+        "title": "Quit India, INA, Partition and Independence"
+      },
+      {
+        "id": "HIS-20",
+        "title": "Post-independence consolidation: integration of states and reorganisation"
+      },
+      {
+        "id": "HIS-21",
+        "title": "Indian art and architecture"
+      },
+      {
+        "id": "HIS-22",
+        "title": "Indian culture: dance, music, literature, festivals"
+      }
+    ],
+    "GEO": [
+      {
+        "id": "GEO-01",
+        "title": "Universe, solar system, motions of the Earth"
+      },
+      {
+        "id": "GEO-02",
+        "title": "Latitudes, longitudes and time"
+      },
+      {
+        "id": "GEO-03",
+        "title": "Interior of the Earth, rocks, plate tectonics"
+      },
+      {
+        "id": "GEO-04",
+        "title": "Landforms and geomorphic processes"
+      },
+      {
+        "id": "GEO-05",
+        "title": "Atmosphere: structure and heat budget"
+      },
+      {
+        "id": "GEO-06",
+        "title": "Pressure, winds and cyclones"
+      },
+      {
+        "id": "GEO-07",
+        "title": "Oceans: relief, currents, tides"
+      },
+      {
+        "id": "GEO-08",
+        "title": "World climate regions"
+      },
+      {
+        "id": "GEO-09",
+        "title": "India: location and physiography"
+      },
+      {
+        "id": "GEO-10",
+        "title": "Drainage systems of India"
+      },
+      {
+        "id": "GEO-11",
+        "title": "Indian monsoon and climate"
+      },
+      {
+        "id": "GEO-12",
+        "title": "Soils and natural vegetation of India"
+      },
+      {
+        "id": "GEO-13",
+        "title": "Agriculture in India: crops and irrigation"
+      },
+      {
+        "id": "GEO-14",
+        "title": "Minerals and energy resources"
+      },
+      {
+        "id": "GEO-15",
+        "title": "Industries and transport"
+      },
+      {
+        "id": "GEO-16",
+        "title": "Population, census and urbanisation"
+      },
+      {
+        "id": "GEO-17",
+        "title": "World geography: continents, rivers, mountains, deserts"
+      },
+      {
+        "id": "GEO-18",
+        "title": "Map-based study: important places in the news"
+      }
+    ],
+    "ECO": [
+      {
+        "id": "ECO-01",
+        "title": "Basic concepts: sectors of the economy, GDP, GNP"
+      },
+      {
+        "id": "ECO-02",
+        "title": "National income and measuring growth"
+      },
+      {
+        "id": "ECO-03",
+        "title": "Inflation: types and measurement (CPI, WPI)"
+      },
+      {
+        "id": "ECO-04",
+        "title": "Money, banking and the RBI"
+      },
+      {
+        "id": "ECO-05",
+        "title": "Monetary policy and its tools"
+      },
+      {
+        "id": "ECO-06",
+        "title": "Financial markets: SEBI, stock market, instruments"
+      },
+      {
+        "id": "ECO-07",
+        "title": "Public finance: Budget, taxes, GST"
+      },
+      {
+        "id": "ECO-08",
+        "title": "Fiscal policy: deficits and FRBM"
+      },
+      {
+        "id": "ECO-09",
+        "title": "Planning to NITI Aayog"
+      },
+      {
+        "id": "ECO-10",
+        "title": "Agriculture economy: MSP, PDS, subsidies, land reforms"
+      },
+      {
+        "id": "ECO-11",
+        "title": "Industry and MSMEs"
+      },
+      {
+        "id": "ECO-12",
+        "title": "External sector: balance of payments, forex, trade, WTO"
+      },
+      {
+        "id": "ECO-13",
+        "title": "International institutions: IMF, World Bank, ADB"
+      },
+      {
+        "id": "ECO-14",
+        "title": "Poverty, unemployment, inclusive growth"
+      },
+      {
+        "id": "ECO-15",
+        "title": "Social sector schemes and human development indices"
+      },
+      {
+        "id": "ECO-16",
+        "title": "Financial inclusion and digital payments"
+      },
+      {
+        "id": "ECO-17",
+        "title": "Infrastructure and energy"
+      },
+      {
+        "id": "ECO-18",
+        "title": "How to read the Economic Survey and Union Budget"
+      }
+    ],
+    "ENV": [
+      {
+        "id": "ENV-01",
+        "title": "Ecosystem and food chains"
+      },
+      {
+        "id": "ENV-02",
+        "title": "Biodiversity and hotspots"
+      },
+      {
+        "id": "ENV-03",
+        "title": "Protected areas: national parks, sanctuaries, biosphere reserves, Ramsar sites"
+      },
+      {
+        "id": "ENV-04",
+        "title": "Pollution and CPCB"
+      },
+      {
+        "id": "ENV-05",
+        "title": "Climate change: UNFCCC, Paris Agreement, COP, India's commitments"
+      },
+      {
+        "id": "ENV-06",
+        "title": "Environmental laws and institutions"
+      },
+      {
+        "id": "ENV-07",
+        "title": "Western Ghats and Karnataka biodiversity"
+      },
+      {
+        "id": "ENV-08",
+        "title": "Renewable energy"
+      },
+      {
+        "id": "ENV-09",
+        "title": "Disaster management"
+      },
+      {
+        "id": "ENV-10",
+        "title": "Sustainable Development Goals"
+      }
+    ],
+    "SCI": [
+      {
+        "id": "SCI-01",
+        "title": "Space: ISRO and its missions"
+      },
+      {
+        "id": "SCI-02",
+        "title": "Defence technology basics"
+      },
+      {
+        "id": "SCI-03",
+        "title": "Nuclear energy"
+      },
+      {
+        "id": "SCI-04",
+        "title": "Biotechnology and GM crops"
+      },
+      {
+        "id": "SCI-05",
+        "title": "Health: diseases and vaccines"
+      },
+      {
+        "id": "SCI-06",
+        "title": "IT, AI, quantum, cybersecurity"
+      },
+      {
+        "id": "SCI-07",
+        "title": "Everyday physics"
+      },
+      {
+        "id": "SCI-08",
+        "title": "Everyday chemistry"
+      },
+      {
+        "id": "SCI-09",
+        "title": "Human body systems and nutrition"
+      },
+      {
+        "id": "SCI-10",
+        "title": "Telecom, 5G and semiconductors"
+      }
+    ],
+    "KAR": [
+      {
+        "id": "KAR-01",
+        "title": "Unification and formation of Karnataka"
+      },
+      {
+        "id": "KAR-02",
+        "title": "Early dynasties: Kadambas, Gangas, Badami Chalukyas"
+      },
+      {
+        "id": "KAR-03",
+        "title": "Rashtrakutas, Kalyani Chalukyas, Hoysalas"
+      },
+      {
+        "id": "KAR-04",
+        "title": "Vijayanagara, Bahmani and Adil Shahi"
+      },
+      {
+        "id": "KAR-05",
+        "title": "Mysore Wodeyars, Hyder Ali and Tipu Sultan"
+      },
+      {
+        "id": "KAR-06",
+        "title": "Freedom struggle in Karnataka"
+      },
+      {
+        "id": "KAR-07",
+        "title": "Physiography and rivers of Karnataka"
+      },
+      {
+        "id": "KAR-08",
+        "title": "Climate, soils and forests of Karnataka"
+      },
+      {
+        "id": "KAR-09",
+        "title": "Agriculture, irrigation projects and river disputes"
+      },
+      {
+        "id": "KAR-10",
+        "title": "Minerals, industries, IT and BT"
+      },
+      {
+        "id": "KAR-11",
+        "title": "Karnataka economy: Budget and Economic Survey"
+      },
+      {
+        "id": "KAR-12",
+        "title": "Demography and districts"
+      },
+      {
+        "id": "KAR-13",
+        "title": "State administration and district administration"
+      },
+      {
+        "id": "KAR-14",
+        "title": "Panchayati Raj in Karnataka"
+      },
+      {
+        "id": "KAR-15",
+        "title": "Karnataka Lokayukta and state institutions"
+      },
+      {
+        "id": "KAR-16",
+        "title": "Art and architecture of Karnataka"
+      },
+      {
+        "id": "KAR-17",
+        "title": "Kannada literature"
+      },
+      {
+        "id": "KAR-18",
+        "title": "Folk arts, music, dance, festivals"
+      },
+      {
+        "id": "KAR-19",
+        "title": "Social reformers of Karnataka"
+      },
+      {
+        "id": "KAR-20",
+        "title": "Welfare schemes of Karnataka"
+      },
+      {
+        "id": "KAR-21",
+        "title": "Kannada language and its institutions"
+      },
+      {
+        "id": "KAR-22",
+        "title": "Tourism and heritage sites of Karnataka"
+      }
+    ]
+  }
+}
